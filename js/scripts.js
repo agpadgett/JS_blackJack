@@ -20,7 +20,6 @@ for(var i = 0; i < vals.length; i ++){
   }
 
 }
-console.log(deck);
 return deck;
 }
 //
@@ -36,6 +35,20 @@ function shuffleDeck(deck) {
     newDeck[i] = newDeck[rand];
     newDeck[rand] = deck[i];
   }
-  console.log(newDeck);
   return newDeck;
+}
+
+function makePlayer(){
+  var player = [];
+  return player;
+}
+
+function makeDealer(){
+  var dealer = [];
+  return dealer;
+}
+
+function giveCard(deck, player){
+  player.push(deck[0]);
+  deck.splice(0, 0);
 }

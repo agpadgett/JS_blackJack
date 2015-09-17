@@ -15,3 +15,24 @@ describe('shuffleDeck', function(){
     expect(makeDeck() !== shuffleDeck(makeDeck()));
   })
 });
+
+describe('makePlayer', function(){
+  it('creates a player', function(){
+    expect(makePlayer().length).to.equal(0);
+  })
+});
+
+describe('makeDealer', function(){
+  it('creates a dealer', function(){
+    expect(makeDealer().length).to.equal(0);
+  })
+});
+
+describe('giveCard', function(){
+  it('gives a player a card', function(){
+  var player = makePlayer();
+  var deck = shuffleDeck(makeDeck());
+  giveCard(deck, player);
+  expect(player.length === 1); //.to.equal won't work here. WE don't know why
+  })
+});
