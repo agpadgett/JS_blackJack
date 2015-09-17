@@ -65,4 +65,24 @@ describe('getNumericValue', function(){
     var integ = getNumericValue(card);
     expect(integ === 11);
   })
-})
+});
+
+describe('calculateSum', function(){
+  it('calculates the sum of the card values', function(){
+    var deck = makeDeck();
+    var player = makePlayer();
+    giveCard(deck, player);
+    giveCard(deck, player);
+    var sum = calculateSum(player);
+    expect(sum).to.equal(22);
+  })
+
+  it('calculates the sum of the card values for dealer visible', function(){
+    var deck = makeDeck();
+    var dealer = makeDealer();
+    giveCard(deck, dealer);
+    giveCard(deck, dealer);
+    var sum = calculateSum(showDealerCards(dealer));
+    expect(sum).to.equal(11);
+  })
+});

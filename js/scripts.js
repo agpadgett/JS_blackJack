@@ -1,15 +1,4 @@
 
-
-
-// function card(val, suit){
-//   this.suit = suit;
-//   this.val = val;
-//
-//   this.toString = function(){
-//     this.val + " of " + this.suit;
-//   }
-// }
-
 function makeDeck(){
 var vals = ["ace", "two", "three", "four", "five", "six", "seven", "eight", "nine", "ten", "jack", "queen", "king"];
 
@@ -130,3 +119,43 @@ function getNumericValue(card){
 
   return numValue;
 }
+
+//[calculate num values adding up sum of every thing in the hand of player dealer]
+
+function calculateSum(cardArray){
+  var calSum = 0;
+  for(var i = 0; i < cardArray.length; i++){
+    calSum = calSum + getNumericValue(cardArray[0]);
+  }
+  return calSum;
+}
+
+$(document).ready(function() {
+  var deck = shuffleDeck(makeDeck());
+  var player = makePlayer();
+  var dealer = makeDealer();
+
+  $("form#deal").submit(function(event) {
+    giveCard(deck, player);
+    giveCard(deck, player);
+
+    giveCard(deck, dealer);
+    giveCard(deck, dealer);
+
+    $(".playercards").text(player);
+    var dealerVis = showDealerCards(dealer);
+    $(".dealercards").text(dealerVis);
+    event.preventDefault();
+    });
+
+  $("form#hit").submit(function(event) {
+  giveCard(deck, player);
+  $(".playercards").text(player);
+  event.preventDefault();
+  });
+
+  $("form#hold").submit(function(event){
+    //OK, eventually we're gonna do some stuff with the dealer here, but it's 4:40
+  })
+
+});
