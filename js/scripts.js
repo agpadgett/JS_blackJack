@@ -23,18 +23,19 @@ for(var i = 0; i < vals.length; i ++){
 console.log(deck);
 return deck;
 }
-
-function randomNumber(){
-  return Math.random() *(1-53) + 1;
-}
-
-
-function checkIfInDeck()
-
-// function pullCard(){
 //
-//
-//     function checkIfInDeck(){
-//
-//     }
+// function randomNumber(){
+//   return Math.random() *(1-53) + 1;
 // }
+//
+function shuffleDeck(deck) {
+
+  var newDeck =[];
+  for(var i = 0; i < deck.length; i++){
+    var rand = Math.floor(Math.random()* (i+1));
+    newDeck[i] = newDeck[rand];
+    newDeck[rand] = deck[i];
+  }
+  console.log(newDeck);
+  return newDeck;
+}

@@ -4,8 +4,14 @@ describe('makeDeck', function(){
   })
 });
 
-describe('randomNumber', function(){
-  it('generates a random number 1-52', function(){
-    expect(0 < randomNumber() < 53);
+// describe('randomNumber', function(){
+//   it('generates a random number 1-52', function(){
+//     expect(0 < randomNumber() < 53);
+//   })
+// });
+
+describe('shuffleDeck', function(){
+  it('shuffles a deck', function(){
+    expect(makeDeck() !== shuffleDeck(makeDeck()));
   })
 });
